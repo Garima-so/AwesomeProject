@@ -1,14 +1,25 @@
-import React from 'react';
-import {View} from 'react-native';
-import Demo from './src/View/Screens/Demo';
+import React from "react";
+import {View,Text} from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { NavigationContainer } from "@react-navigation/native";
+import BottomTabs from "./src/Components/BottomTabs";
+import { Provider } from 'react-redux';
+import { Store } from './src/redux/store';
+
+
 
 
 const App=()=>
 {
   return(
-    <View>
-    <Demo/>
-    </View>
+    <Provider store={Store}>
+   <SafeAreaProvider style={{flex:1, backgroundColor:"#fff"}}>
+    <NavigationContainer>
+<BottomTabs/>
+    </NavigationContainer>
+   </SafeAreaProvider>
+    </Provider>
+   
     )
 }
 
